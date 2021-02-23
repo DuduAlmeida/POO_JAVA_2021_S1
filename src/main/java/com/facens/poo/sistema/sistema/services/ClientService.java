@@ -16,14 +16,14 @@ public class ClientService {
     @Autowired
     private ClientRepository repo;
 
-    public List<ClientDTO> getClients(){
-       
-        List<Client>    list = repo.getClients();
-        
+    public List<ClientDTO> getClients() {
+
+        List<Client> list = repo.findAll();
+
         List<ClientDTO> listDTO = new ArrayList<>();
-        
-        for(Client c: list){
-            listDTO.add(new ClientDTO(c.getId(),c.getName()));
+
+        for (Client c : list) {
+            listDTO.add(new ClientDTO(c.getId(), c.getName()));
         }
 
         return listDTO;
